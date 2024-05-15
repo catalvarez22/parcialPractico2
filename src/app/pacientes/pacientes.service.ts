@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Paciente } from './pacientes.model';
+import { Paciente } from './paciente.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PacientesService {
-  private url = 'https://gist.githubusercontent.com/k-garces/17c74c4ce5f6b09583fd9fcd941a7b68/raw/d9119d1d89f6fe4dea0250754baf11ea9dad1457/pacients.json';
+  private url = 'https://gist.githubusercontent.com/k-garces/.../pacients.json';
 
   constructor(private http: HttpClient) {}
 

@@ -1,4 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
+import { PacientesService } from './pacientes.service';
+import { Paciente } from './paciente.model';
 
 @Component({
   selector: 'app-pacientes',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pacientes.component.css']
 })
 export class PacientesComponent implements OnInit {
+  pacientes: Paciente[] = [];
+  menoresDeEdad: number = 0;
 
-  constructor() { }
+  constructor(private pacientesService: PacientesService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.pacientesService.getPacientes().subscribe(data => {
+      this.pacientes = data;
+      this.menoresDeEdad = this.pacientes.filter(paciente => paciente.edad < 18).length;
+    });
   }
-
 }
+
+
+

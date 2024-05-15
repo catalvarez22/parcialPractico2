@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { PacientesService } from './pacientes.service';
-import { Paciente } from './pacientes.model';
+import { PacientesService } from './pacientes/pacientes.service';
+import { Paciente } from './pacientes/paciente.model';
 
 @Component({
   selector: 'app-pacientes',
-  templateUrl: './pacientes.component.html',
-  styleUrls: ['./pacientes.component.css']
+  templateUrl: './pacientes/pacientes.component.html',
+  styleUrls: ['./pacientes/pacientes.component.css']
 })
 export class PacientesComponent implements OnInit {
   pacientes: Paciente[] = [];
+menoresDeEdad: any;
 
   constructor(private pacientesService: PacientesService) {}
 
